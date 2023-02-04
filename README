@@ -1,0 +1,30 @@
+deve rodar o comando abaixo para levantar o banco de dados que utilizei Docker 
+
+docker run -d --name mydb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 mysql:5.7
+
+após o banco de dados estar operante, siga os passos abaixo:
+
+inicialização do da aplicação 
+será necessário dois terminais abertos, um na pasta front-end outro na back-end
+
+TERMINAL BACK-END COMANDOS:
+
+npm run db:reset
+npm run dev
+
+TERMINAL FRONT-END COMANDO: 
+
+npm start
+
+acesse o localhost:3000 a aplicação ja deve estar funcional
+
+DESCRIÇÃO DO PROJETO:
+
+A escolha do backend foi com node banco de dados mysql com ORM sequelize, pela facilidade de rodar seed para popular o banco importado de um arquivo csv
+a api ficou bem simples por não ter muitas regras de negócio e nem muitos endpoints então fiz apenas uma requisição simples para o banco retornando todas
+as informações da tabela reservas
+
+Fronend desenvolvido com React.js não implementei typescript por ser de baixa complexidade de dados, escolhi context API para gerenciar o estado global
+da aplicação de forma que ficou bem facil realizar a criação das tabelas de contas a pagar ou a receber, biblioteca date-fns para auxiliar na formatação dos
+dados de datas, utilizei tambem styled-components para fazer algumas estilizações basicas, embora não tive tempo para fazer muita estilização.
+utilizei React pagination para realizar a paginação das contas.
